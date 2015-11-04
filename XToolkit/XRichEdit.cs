@@ -169,6 +169,6 @@ namespace System.Win32
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_EnableAutoCancelSel",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void EnableAutoCancelSel(IntPtr hEle, bool bEnable=true);
+        public static extern void EnableAutoCancelSel(IntPtr hEle, bool bEnable = true);
     }
 }

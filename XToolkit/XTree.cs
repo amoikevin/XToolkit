@@ -15,8 +15,9 @@ namespace System.Win32
             CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         public static extern bool SetItemTemplateXMLSel(IntPtr hEle, [MarshalAs(UnmanagedType.LPWStr)] string pXmlFile);
 
-        [DllImport(XToolkit.DllName, EntryPoint = "XTree_SetStyle", CallingConvention = CallingConvention.StdCall)]
-        public static extern void SetStyle(IntPtr hEle, int style);
+        [DllImport(XToolkit.DllName, EntryPoint = "XTree_SetDrawItemBkFlags",
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr SetDrawItemBkFlags(IntPtr hEle, int nFlags);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XTree_SetItemData", CallingConvention = CallingConvention.StdCall)]
         public static extern bool SetItemData(IntPtr hEle, int nID, int nUserData);
@@ -55,50 +56,61 @@ namespace System.Win32
 
         [DllImport(XToolkit.DllName, EntryPoint = "XTree_SetIndentation", CallingConvention = CallingConvention.StdCall)
         ]
-        public static extern void SetIndentation(IntPtr hEle, int nWidth);
+        public static extern IntPtr SetIndentation(IntPtr hEle, int nWidth);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XTree_GetIndentation", CallingConvention = CallingConvention.StdCall)
         ]
         public static extern int GetIndentation(IntPtr hEle);
 
+        [DllImport(XToolkit.DllName, EntryPoint = "XTree_SetItemHeight", CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr SetItemHeight(IntPtr hEle, int nID, int nHeight, int nSelHeight);
+
+        [DllImport(XToolkit.DllName, EntryPoint = "XTree_GetItemHeight", CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr GetItemHeight(IntPtr hEle, int nID, out int pHeight, out int pSelHeight);
+
+        [DllImport(XToolkit.DllName, EntryPoint = "XTree_AddItemBkBorder", CallingConvention = CallingConvention.StdCall
+            )]
+        public static extern IntPtr AddItemBkBorder(IntPtr hEle, XTreeItemState nState, int color, byte alpha, int width);
+
+        [DllImport(XToolkit.DllName, EntryPoint = "XTree_AddItemBkFill", CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr AddItemBkFill(IntPtr hEle, XTreeItemState nState, int color, byte alpha);
+
+        [DllImport(XToolkit.DllName, EntryPoint = "XTree_AddItemBkImage", CallingConvention = CallingConvention.StdCall)
+        ]
+        public static extern IntPtr AddItemBkImage(IntPtr hEle, XTreeItemState nState, IntPtr hImage);
+
+        [DllImport(XToolkit.DllName, EntryPoint = "XTree_GetItemBkInfoCount",
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern int GetItemBkInfoCount(IntPtr hEle, XTreeItemState nState);
+
+        [DllImport(XToolkit.DllName, EntryPoint = "XTree_ClearItemBkInfo", CallingConvention = CallingConvention.StdCall
+            )]
+        public static extern IntPtr ClearItemBkInfo(IntPtr hEle, XTreeItemState nState);
+
+        [DllImport(XToolkit.DllName, EntryPoint = "XTree_GetItemBkInfoManager",
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr GetItemBkInfoManager(IntPtr hEle, XTreeItemState nState);
+
         [DllImport(XToolkit.DllName, EntryPoint = "XTree_SetItemHeightDefault",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void SetItemHeightDefault(IntPtr hEle, int nHeight, int nSelHeight);
+        public static extern IntPtr SetItemHeightDefault(IntPtr hEle, int nHeight, int nSelHeight);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XTree_GetItemHeightDefault",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void GetItemHeightDefault(IntPtr hEle, out int pHeight, out int pSelHeight);
-
-        [DllImport(XToolkit.DllName, EntryPoint = "XTree_SetItemHeight", CallingConvention = CallingConvention.StdCall)]
-        public static extern void SetItemHeight(IntPtr hEle, int nID, int nHeight, int nSelHeight);
-
-        [DllImport(XToolkit.DllName, EntryPoint = "XTree_GetItemHeight", CallingConvention = CallingConvention.StdCall)]
-        public static extern void GetItemHeight(IntPtr hEle, int nID, out int pHeight, out int pSelHeight);
-
-        [DllImport(XToolkit.DllName, EntryPoint = "XTree_SetItemColor", CallingConvention = CallingConvention.StdCall)]
-        public static extern void SetItemColor(IntPtr hEle, int color, byte alpha = 255);
-
-        [DllImport(XToolkit.DllName, EntryPoint = "XTree_SetItemColorSel", CallingConvention = CallingConvention.StdCall
-            )]
-        public static extern void SetItemColorSel(IntPtr hEle, int color, byte alpha = 255);
-
-        [DllImport(XToolkit.DllName, EntryPoint = "XTree_GetItemColor", CallingConvention = CallingConvention.StdCall)]
-        public static extern int GetItemColor(IntPtr hEle);
-
-        [DllImport(XToolkit.DllName, EntryPoint = "XTree_GetItemColorSel", CallingConvention = CallingConvention.StdCall
-            )]
-        public static extern int GetItemColorSel(IntPtr hEle);
+        public static extern IntPtr GetItemHeightDefault(IntPtr hEle, out int pHeight, out int pSelHeight);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XTree_GetTemplateObject",
             CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr GetTemplateObject(IntPtr hEle, int nID, int nTempItemID); //通过模板项ID,获取实例化模板项ID对应的对象.
 
+        [DllImport(XToolkit.DllName, EntryPoint = "XTree_GetItemIDFromHXCGUI",
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern int GetItemIDFromHXCGUI(IntPtr hEle, IntPtr hXCGUI);
+
         [DllImport(XToolkit.DllName, EntryPoint = "XTree_BindAdapter", CallingConvention = CallingConvention.StdCall)]
-        public static extern void BindAdapter(IntPtr hEle, IntPtr hAdapter);
+        public static extern IntPtr BindAdapter(IntPtr hEle, IntPtr hAdapter);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XTree_GetAdapter", CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr GetAdapter(IntPtr hEle);
-        [DllImport(XToolkit.DllName, EntryPoint = "XTree_GetItemIDFromHXCGUI", CallingConvention = CallingConvention.StdCall)]
-        public static extern int GetItemIDFromHXCGUI(IntPtr hEle, IntPtr hXCGUI);
     }
 }

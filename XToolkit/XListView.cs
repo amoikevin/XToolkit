@@ -104,7 +104,8 @@ namespace System.Win32
             )]
         public static extern bool ExpandGroup(IntPtr hEle, int iGroup, bool bExpand);
 
-        [DllImport(XToolkit.DllName, EntryPoint = "XListView_GetItemIDFromHXCGUI", CallingConvention = CallingConvention.StdCall
+        [DllImport(XToolkit.DllName, EntryPoint = "XListView_GetItemIDFromHXCGUI",
+            CallingConvention = CallingConvention.StdCall
             )]
         public static extern bool GetItemIDFromHXCGUI(IntPtr hEle, IntPtr hXCGUI, out int piGroup, out int piItem);
     }

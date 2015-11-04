@@ -16,7 +16,7 @@ namespace System.Win32
 
         [DllImport(XToolkit.DllName, EntryPoint = "XToolBar_EnableButtonMenu",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void EnableButtonMenu(IntPtr hEle, bool bEnable); //显示隐藏项菜单按钮
+        public static extern IntPtr EnableButtonMenu(IntPtr hEle, bool bEnable); //显示隐藏项菜单按钮
 
         [DllImport(XToolkit.DllName, EntryPoint = "XToolBar_GetHEle", CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr GetHEle(IntPtr hEle, int index); //获取工具条上元素句柄
@@ -33,11 +33,14 @@ namespace System.Win32
             CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr GetButtonMenu(IntPtr hEle); //获取弹出菜单按钮
 
+        [DllImport(XToolkit.DllName, EntryPoint = "XToolBar_SetSpace", CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr SetSpace(IntPtr hEle, int nSize);
+
         [DllImport(XToolkit.DllName, EntryPoint = "XToolBar_DeleteEle", CallingConvention = CallingConvention.StdCall)]
-        public static extern void DeleteEle(IntPtr hEle, int index); //移除工具条上元素并销毁
+        public static extern IntPtr DeleteEle(IntPtr hEle, int index); //移除工具条上元素并销毁
 
         [DllImport(XToolkit.DllName, EntryPoint = "XToolBar_DeleteAllEle", CallingConvention = CallingConvention.StdCall
             )]
-        public static extern void DeleteAllEle(IntPtr hEle);
+        public static extern IntPtr DeleteAllEle(IntPtr hEle);
     }
 }

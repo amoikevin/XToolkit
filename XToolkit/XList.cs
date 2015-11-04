@@ -125,7 +125,9 @@ namespace System.Win32
 
         [DllImport(XToolkit.DllName, EntryPoint = "XList_RefreshData", CallingConvention = CallingConvention.StdCall)]
         public static extern void RefreshData(IntPtr hEle);
-        [DllImport(XToolkit.DllName, EntryPoint = "XList_GetItemIndexFromHXCGUI", CallingConvention = CallingConvention.StdCall)]
+
+        [DllImport(XToolkit.DllName, EntryPoint = "XList_GetItemIndexFromHXCGUI",
+            CallingConvention = CallingConvention.StdCall)]
         public static extern int GetItemIndexFromHXCGUI(IntPtr hEle, IntPtr hXCGUI);
     }
 }

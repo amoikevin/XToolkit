@@ -6,7 +6,5 @@ namespace System.Win32
     {
         [DllImport(XToolkit.DllName, EntryPoint = "XAdapter_Destroy", CallingConvention = CallingConvention.StdCall)]
         public static extern void Destroy(IntPtr hAdapter);
-
-
     }
 }

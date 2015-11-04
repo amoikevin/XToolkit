@@ -118,7 +118,9 @@ namespace System.Win32
 
         [DllImport(XToolkit.DllName, EntryPoint = "XListBox_GetAdapter", CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr GetAdapter(IntPtr hEle);
-        [DllImport(XToolkit.DllName, EntryPoint = "XListBox_GetItemIndexFromHXCGUI", CallingConvention = CallingConvention.StdCall)]
+
+        [DllImport(XToolkit.DllName, EntryPoint = "XListBox_GetItemIndexFromHXCGUI",
+            CallingConvention = CallingConvention.StdCall)]
         public static extern int GetItemIndexFromHXCGUI(IntPtr hEle, IntPtr hXCGUI);
     }
 }

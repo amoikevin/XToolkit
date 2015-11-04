@@ -4,10 +4,10 @@ namespace System.Win32
 {
     public static class XWnd
     {
-        //[DllImport(XToolkit.DllName, EntryPoint = "XWnd_RegEventEx", CallingConvention = CallingConvention.StdCall)]
-        //public static extern void RegEventEx(IntPtr hWindow, CEventBase* pEvent);
-        //[DllImport(XToolkit.DllName, EntryPoint = "XWnd_RemoveEventEx", CallingConvention = CallingConvention.StdCall)]
-        //public static extern bool RemoveEventEx(IntPtr hWindow, CEventBase* pEvent);
+//        [DllImport(XToolkit.DllName, EntryPoint = "XWnd_RegEventEx", CallingConvention = CallingConvention.StdCall)]
+//        public static extern void RegEventEx(IntPtr hWindow, CEventBase* pEvent);
+//        [DllImport(XToolkit.DllName, EntryPoint = "XWnd_RemoveEventEx", CallingConvention = CallingConvention.StdCall)]
+//        public static extern bool RemoveEventEx(IntPtr hWindow, CEventBase* pEvent);
         [DllImport(XToolkit.DllName, EntryPoint = "XWnd_RegEventC", CallingConvention = CallingConvention.StdCall)]
         public static extern void RegEventC(IntPtr hWindow, int nEvent, IntPtr pFun);
 
@@ -93,22 +93,18 @@ namespace System.Win32
         public static extern IntPtr GetCaptureEle(IntPtr hWindow);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XWnd_BindLayoutEle", CallingConvention = CallingConvention.StdCall)]
-        public static extern bool BindLayoutEle(IntPtr hWindow, int nFlag, IntPtr hEle);
+        public static extern bool BindLayoutEle(IntPtr hWindow, XWndPos nPosition, IntPtr hEle);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XWnd_GetLayoutEle", CallingConvention = CallingConvention.StdCall)]
-        public static extern IntPtr GetLayoutEle(IntPtr hWindow, int nFlag);
+        public static extern IntPtr GetLayoutEle(IntPtr hWindow, XWndPos nPosition);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XWnd_BindLayoutObject", CallingConvention = CallingConvention.StdCall
             )]
-        public static extern void BindLayoutObject(IntPtr hWindow, int nFlag, IntPtr hLayout);
+        public static extern void BindLayoutObject(IntPtr hWindow, XWndPos nPosition, IntPtr hLayout);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XWnd_GetLayoutObject", CallingConvention = CallingConvention.StdCall)
         ]
-        public static extern IntPtr GetLayoutObject(IntPtr hWindow, int nFlag);
-
-        [DllImport(XToolkit.DllName, EntryPoint = "XWnd_SetLayoutBkColor", CallingConvention = CallingConvention.StdCall
-            )]
-        public static extern void SetLayoutBkColor(IntPtr hWindow, int nFlag, int color, byte alpha = 255);
+        public static extern IntPtr GetLayoutObject(IntPtr hWindow, XWndPos nPosition);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XWnd_SetLayoutSize", CallingConvention = CallingConvention.StdCall)]
         public static extern void SetLayoutSize(IntPtr hWindow, int left, int top, int right, int bottom);
@@ -193,15 +189,13 @@ namespace System.Win32
         [DllImport(XToolkit.DllName, EntryPoint = "XWnd_KillTimer", CallingConvention = CallingConvention.StdCall)]
         public static extern bool KillTimer(IntPtr hWindow, int nIDEvent);
 
-        [DllImport(XToolkit.DllName, EntryPoint = "XWnd_SetImage", CallingConvention = CallingConvention.StdCall)]
-        public static extern void SetImage(IntPtr hWindow, IntPtr hImage);
+        [DllImport(XToolkit.DllName, EntryPoint = "XWnd_GetBkInfoManager", CallingConvention = CallingConvention.StdCall
+            )]
+        public static extern IntPtr GetBkInfoManager(IntPtr hWindow, XWndPos nPosition);
 
-        [DllImport(XToolkit.DllName, EntryPoint = "XWnd_SetImageLayout", CallingConvention = CallingConvention.StdCall)]
-        public static extern void SetImageLayout(IntPtr hWindow, IntPtr hImage, int nFlag);
-
-        [DllImport(XToolkit.DllName, EntryPoint = "XWnd_SetTransparentFlag",
+        [DllImport(XToolkit.DllName, EntryPoint = "XWnd_SetTransparentType",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void SetTransparentFlag(IntPtr hWindow, int nFlag); //设置透明窗口
+        public static extern void SetTransparentType(IntPtr hWindow, XWindowTransparent nType); //设置透明窗口
 
         [DllImport(XToolkit.DllName, EntryPoint = "XWnd_SetTransparentAlpha",
             CallingConvention = CallingConvention.StdCall)]
@@ -210,7 +204,7 @@ namespace System.Win32
         [DllImport(XToolkit.DllName, EntryPoint = "XWnd_SetTransparentColor",
             CallingConvention = CallingConvention.StdCall)]
         public static extern void SetTransparentColor(IntPtr hWindow, int color); //设置窗口透明色
-//        [DllImport(XToolkit.DllName, EntryPoint = "XWnd_RegEventTest", CallingConvention = CallingConvention.StdCall)]
-//        public static extern bool RegEventTest(int nEvent, byte* pParamType);
+        //[DllImport(XToolkit.DllName, EntryPoint = "XWnd_RegEventTest", CallingConvention = CallingConvention.StdCall)]
+        //public static extern bool RegEventTest(int nEvent, byte* pParamType);
     }
 }
