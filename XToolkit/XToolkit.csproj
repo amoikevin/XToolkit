@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82B672D4-A6F7-44A3-BB26-33E6E233DF7E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Win32</RootNamespace>
+    <AssemblyName>XToolkit</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ListBoxItemInfoI.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XAdapter.cs" />
+    <Compile Include="XAdapterListView.cs" />
+    <Compile Include="XAdapterMap.cs" />
+    <Compile Include="XAdapterTable.cs" />
+    <Compile Include="XAdapterTree.cs" />
+    <Compile Include="XAlignType.cs" />
+    <Compile Include="XBtn.cs" />
+    <Compile Include="XComboBox.cs" />
+    <Compile Include="XDockAlign.cs" />
+    <Compile Include="XDraw.cs" />
+    <Compile Include="XEle.cs" />
+    <Compile Include="XFont.cs" />
+    <Compile Include="XFrameWnd.cs" />
+    <Compile Include="XImage.cs" />
+    <Compile Include="XLayout.cs" />
+    <Compile Include="XLayoutAlign.cs" />
+    <Compile Include="XList.cs" />
+    <Compile Include="XListBox.cs" />
+    <Compile Include="XListView.cs" />
+    <Compile Include="XLogFont.cs" />
+    <Compile Include="XLogFontW.cs" />
+    <Compile Include="XMenu.cs" />
+    <Compile Include="XMenuBar.cs" />
+    <Compile Include="XModalWnd.cs" />
+    <Compile Include="XObjectType.cs" />
+    <Compile Include="XPadding.cs" />
+    <Compile Include="XPane.cs" />
+    <Compile Include="XPaneState.cs" />
+    <Compile Include="XPGrid.cs" />
+    <Compile Include="XPoint.cs" />
+    <Compile Include="XProgBar.cs" />
+    <Compile Include="XRect.cs" />
+    <Compile Include="XRichEdit.cs" />
+    <Compile Include="XRichEditColor.cs" />
+    <Compile Include="XRichEditFile.cs" />
+    <Compile Include="XRichEditFolder.cs" />
+    <Compile Include="XRichEditSet.cs" />
+    <Compile Include="XSBar.cs" />
+    <Compile Include="XShape.cs" />
+    <Compile Include="XShapeEllipse.cs" />
+    <Compile Include="XShapeGif.cs" />
+    <Compile Include="XShapeGroupBox.cs" />
+    <Compile Include="XShapeLine.cs" />
+    <Compile Include="XShapePic.cs" />
+    <Compile Include="XShapeRect.cs" />
+    <Compile Include="XShapeText.cs" />
+    <Compile Include="XSize.cs" />
+    <Compile Include="XSliderBar.cs" />
+    <Compile Include="XSView.cs" />
+    <Compile Include="XTabBar.cs" />
+    <Compile Include="XTextLink.cs" />
+    <Compile Include="XToolBar.cs" />
+    <Compile Include="XToolkit.cs" />
+    <Compile Include="XTree.cs" />
+    <Compile Include="XWindowStyle.cs" />
+    <Compile Include="XWnd.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
