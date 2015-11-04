@@ -81,7 +81,12 @@
     <Compile Include="XAdapterTree.cs" />
     <Compile Include="XAlignType.cs" />
     <Compile Include="XBtn.cs" />
+    <Compile Include="XButtonIconAlign.cs" />
+    <Compile Include="XButtonState.cs" />
+    <Compile Include="XButtonStyle.cs" />
+    <Compile Include="XButtonType.cs" />
     <Compile Include="XComboBox.cs" />
+    <Compile Include="XCommonState.cs" />
     <Compile Include="XDockAlign.cs" />
     <Compile Include="XDraw.cs" />
     <Compile Include="XEle.cs" />
@@ -128,8 +133,11 @@
     <Compile Include="XToolBar.cs" />
     <Compile Include="XToolkit.cs" />
     <Compile Include="XTree.cs" />
+    <Compile Include="XTreeItemState.cs" />
     <Compile Include="XWindowStyle.cs" />
+    <Compile Include="XWindowTransparent.cs" />
     <Compile Include="XWnd.cs" />
+    <Compile Include="XWndPos.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

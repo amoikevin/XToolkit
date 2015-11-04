@@ -9,7 +9,7 @@ namespace System.Win32
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_InsertString",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void InsertString(IntPtr hEle, [MarshalAs(UnmanagedType.LPWStr)] string pString,
+        public static extern IntPtr InsertString(IntPtr hEle, [MarshalAs(UnmanagedType.LPWStr)] string pString,
             [MarshalAs(UnmanagedType.LPStruct)] XLogFontW pFont, int color = 0);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_InsertImage", CallingConvention = CallingConvention.StdCall
@@ -23,7 +23,7 @@ namespace System.Win32
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_InsertStringEx",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void InsertStringEx(IntPtr hEle, int iRow, int iColumn,
+        public static extern IntPtr InsertStringEx(IntPtr hEle, int iRow, int iColumn,
             [MarshalAs(UnmanagedType.LPWStr)] string pString, [MarshalAs(UnmanagedType.LPStruct)] XLogFontW pFont,
             int color = 0);
 
@@ -39,48 +39,48 @@ namespace System.Win32
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_EnableReadOnly",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void EnableReadOnly(IntPtr hEle, bool bEnable);
+        public static extern IntPtr EnableReadOnly(IntPtr hEle, bool bEnable = true);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_EnableMultiLine",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void EnableMultiLine(IntPtr hEle, bool bEnable);
+        public static extern IntPtr EnableMultiLine(IntPtr hEle, bool bEnable=true);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_EnablePassword",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void EnablePassword(IntPtr hEle, bool bEnable);
+        public static extern IntPtr EnablePassword(IntPtr hEle, bool bEnable = true);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_EnableEvent_XE_RICHEDIT_CHANGE",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void EnableChangeEvent(IntPtr hEle, bool bEnable);
+        public static extern IntPtr EnableEvent_XE_RICHEDIT_CHANGE(IntPtr hEle, bool bEnable = true);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_EnableAutoWrap",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void EnableAutoWrap(IntPtr hEle, bool bEnable);
+        public static extern IntPtr EnableAutoWrap(IntPtr hEle, bool bEnable = true);
 
-        [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_EnableKeyTab",
+        [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_EnableAutoCancelSel",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void EnableKeyTab(IntPtr hEle, bool bEnable);
+        public static extern IntPtr EnableAutoCancelSel(IntPtr hEle, bool bEnable = true);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_SetText", CallingConvention = CallingConvention.StdCall)]
-        public static extern void SetText(IntPtr hEle, [MarshalAs(UnmanagedType.LPWStr)] string pString);
+        public static extern IntPtr SetText(IntPtr hEle, [MarshalAs(UnmanagedType.LPWStr)] string pString);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_SetTextInt", CallingConvention = CallingConvention.StdCall)
         ]
-        public static extern void SetTextInt(IntPtr hEle, int nVaule);
+        public static extern IntPtr SetTextInt(IntPtr hEle, int nVaule);
 
-        [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_GetText", CallingConvention = CallingConvention.StdCall,
-            CharSet = CharSet.Unicode)]
+        [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_GetText", CallingConvention = CallingConvention.StdCall)]
         public static extern int GetText(IntPtr hEle, out byte[] pOut, int len);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_GetHTMLFormat",
-            CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
-        public static extern void GetHTMLFormat(IntPtr hEle, out byte[] pOut, int len); //获取HTML格式内容
+            CallingConvention = CallingConvention.StdCall)]
+        public static extern IntPtr GetHTMLFormat(IntPtr hEle, out byte[] pOut, int len); //获取HTML格式内容
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_GetData", CallingConvention = CallingConvention.StdCall)]
         public static extern IntPtr GetData(IntPtr hEle, out int pDataSize);
 
-        [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_SetData", CallingConvention = CallingConvention.StdCall)]
-        public static extern bool SetData(IntPtr hEle, IntPtr pData, int iRow, int iColumn);
+        [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_InsertData", CallingConvention = CallingConvention.StdCall)
+        ]
+        public static extern bool InsertData(IntPtr hEle, IntPtr pData, int iRow, int iColumn);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_GetTextLength",
             CallingConvention = CallingConvention.StdCall)]
@@ -88,7 +88,7 @@ namespace System.Win32
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_SetRowHeight",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void SetRowHeight(IntPtr hEle, int nHeight); //设置默认行高
+        public static extern IntPtr SetRowHeight(IntPtr hEle, int nHeight); //设置默认行高
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_GetCurrentRow",
             CallingConvention = CallingConvention.StdCall)]
@@ -100,7 +100,7 @@ namespace System.Win32
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_SetCurrentPos",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void SetCurrentPos(IntPtr hEle, int iRow, int iColumn);
+        public static extern IntPtr SetCurrentPos(IntPtr hEle, int iRow, int iColumn);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_GetRowCount", CallingConvention = CallingConvention.StdCall
             )]
@@ -111,7 +111,7 @@ namespace System.Win32
         public static extern int GetRowLength(IntPtr hEle, int iRow);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_GetSelectText",
-            CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
+            CallingConvention = CallingConvention.StdCall)]
         public static extern int GetSelectText(IntPtr hEle, out byte[] pOut, int len);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_GetSelectPosition",
@@ -133,17 +133,14 @@ namespace System.Win32
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_CancelSelect",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void CancelSelect(IntPtr hEle);
+        public static extern IntPtr CancelSelect(IntPtr hEle);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_SetSelectBkColor",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void SetSelectBkColor(IntPtr hEle, int color, byte alpha = 255);
+        public static extern IntPtr SetSelectBkColor(IntPtr hEle, int color, byte alpha = 255);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_IsEmpty", CallingConvention = CallingConvention.StdCall)]
         public static extern bool IsEmpty(IntPtr hEle);
-
-        [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_IsKeyTab", CallingConvention = CallingConvention.StdCall)]
-        public static extern bool IsKeyTab(IntPtr hEle);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_SelectAll", CallingConvention = CallingConvention.StdCall)]
         public static extern bool SelectAll(IntPtr hEle); //选择所有内容
@@ -153,7 +150,7 @@ namespace System.Win32
         public static extern bool DeleteSelect(IntPtr hEle); //删除选择内容
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_DeleteAll", CallingConvention = CallingConvention.StdCall)]
-        public static extern void DeleteAll(IntPtr hEle); //删除所有
+        public static extern IntPtr DeleteAll(IntPtr hEle); //删除所有
 
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_ClipboardCut",
             CallingConvention = CallingConvention.StdCall)]
@@ -166,9 +163,5 @@ namespace System.Win32
         [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_ClipboardPaste",
             CallingConvention = CallingConvention.StdCall)]
         public static extern bool ClipboardPaste(IntPtr hEle); //粘贴 粘贴剪贴板内容
-
-        [DllImport(XToolkit.DllName, EntryPoint = "XRichEdit_EnableAutoCancelSel",
-            CallingConvention = CallingConvention.StdCall)]
-        public static extern void EnableAutoCancelSel(IntPtr hEle, bool bEnable = true);
     }
 }

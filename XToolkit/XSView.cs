@@ -73,7 +73,7 @@ namespace System.Win32
 
         [DllImport(XToolkit.DllName, EntryPoint = "XSView_EnableAutoShowScrollBar",
             CallingConvention = CallingConvention.StdCall)]
-        public static extern void EnableAutoShowScrollBar(IntPtr hEle, bool bEnable);
+        public static extern void EnableAutoShowScrollBar(IntPtr hEle, bool bEnable=true);
 
         [DllImport(XToolkit.DllName, EntryPoint = "XSView_ScrollLeftLine", CallingConvention = CallingConvention.StdCall
             )]
